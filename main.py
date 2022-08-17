@@ -9,13 +9,18 @@ with open('recipes.txt', encoding='utf-8') as file:
             numbers_ingridients -= 1
         return ingridients
 
-    cook_book = {}
-    while True:
-        dish = file.readline().strip()
-        cook_book[dish] = add_ingridients()
-        empty_str = file.readline()
-        if not empty_str:
-            break
+    def add_cook_book():
+        c_book = {}
+        while True:
+            dish = file.readline().strip()
+            c_book[dish] = add_ingridients()
+            empty_str = file.readline()
+            if not empty_str:
+                break
+        return c_book
+
+    cook_book = add_cook_book()
+
 
     print(cook_book)
 
